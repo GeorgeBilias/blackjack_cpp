@@ -11,9 +11,12 @@ public:
 	int getValue() const;
 	int setValue();
 	void draw();
+	bool getGiven() const;
+	void itsGiven();
 private:
 	int num;
 	int style;
 	int value;
+	bool given;
 	graphics::Brush br;
 };

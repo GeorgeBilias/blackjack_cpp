@@ -6,6 +6,7 @@ Card::Card(int style, int num)
 	this->style = style;
 	this->num = num;
 	this->value = setValue();
+	this->given = false;
 }
 
 Card::~Card()
@@ -210,6 +211,16 @@ void Card::draw()
 
 		}
 		graphics::drawRect(CARD1_X,CARD1_Y,CARD1_WIDTH,CARD1_HEIGHT, br);
+}
+
+bool Card::getGiven() const
+{
+	return given;
+}
+
+void Card::itsGiven()
+{
+	given = true;
 }
 
 
