@@ -1,0 +1,47 @@
+#include "graphics.h"
+#include "config.h"
+#include "Game.h"
+
+void update(float ms)
+{
+
+	// Calling the update function from the game
+	Game* blackjack = Game::getInstance();
+	blackjack->update();
+}
+
+
+void draw()
+{
+	//Basically calling the draw function from the Game
+	Game* blackjack = Game::getInstance();
+	blackjack->draw();
+
+}
+
+int main()
+{
+	//Creates a Game and gets it if it exists
+	Game * blackjack = Game::getInstance();
+
+	//Creates a Window 
+	graphics::createWindow(WINDOW_WIDTH,WINDOW_HEIGHT,"Blackjack Game");
+
+	//Adds the data to the Screen
+	graphics::setUserData(&blackjack);
+
+	graphics::setDrawFunction(draw);
+	graphics::setUpdateFunction(update);
+
+	//Creates a Canvas where we can actually work upon
+	graphics::setCanvasSize(CANVAS_WIDTH,CANVAS_HEIGHT);
+	graphics::setCanvasScaleMode(graphics::CANVAS_SCALE_FIT);
+	graphics::setFont("assets\\font.ttf");
+
+	//starts a loop where the window remains opened
+	graphics::startMessageLoop();
+
+	delete blackjack;
+
+	return 0;
+}
