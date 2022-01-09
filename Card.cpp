@@ -13,14 +13,52 @@ Card::~Card()
 {
 }
 
-int Card::getNum() const
+Card::Card(const Card& in_card)
 {
-	return num;
+	this->style = in_card.getStyle();
+	this->num = in_card.getNum();
+	this->value = in_card.getValue();
+	this->given = in_card.getGiven();
 }
 
 int Card::getStyle() const
 {
 	return style;
+}
+
+int Card::getNum() const
+{
+	return num;
+}
+
+int Card::getValue() const
+{
+	return value;
+}
+
+bool Card::getGiven() const
+{
+	return given;
+}
+
+void Card::cardGiven()
+{
+	given = true;
+}
+
+int Card::setValue()
+{
+	if (num == 1)
+	{
+		return 11;
+	}
+	else if (num == 11 || num == 12 || num == 13)
+	{
+		return 10;
+	}
+	else {
+		return num;
+	}
 }
 
 void Card::draw()
@@ -212,36 +250,3 @@ void Card::draw()
 		}
 		graphics::drawRect(CARD1_X,CARD1_Y,CARD1_WIDTH,CARD1_HEIGHT, br);
 }
-
-bool Card::getGiven() const
-{
-	return given;
-}
-
-void Card::itsGiven()
-{
-	given = true;
-}
-
-
-int Card::getValue() const
-{
-	return value;
-}
-
-int Card::setValue()
-{
-	if (num == 1)
-	{
-		return 11;
-	}
-	else if (num == 11 || num == 12 || num == 13)
-	{
-		return 10;
-	}
-	else {
-		return num;
-	}
-}
-
-

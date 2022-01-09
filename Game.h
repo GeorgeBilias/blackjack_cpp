@@ -1,5 +1,4 @@
 #pragma once
-#include "Card.h"
 
 //Game with its functions
 class Game

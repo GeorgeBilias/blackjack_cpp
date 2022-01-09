@@ -1,5 +1,8 @@
 #include "Deck.h"
-#include "Card.h";
+#include "Card.h"
+#include <iostream> // std
+#include <vector> // vector
+#include <algorithm> // random shuffle
 
 Deck::Deck()
 {
@@ -16,16 +19,25 @@ void Deck::fill_deck()
 	{
 		for (int j = 1; j <= 13; j++)
 		{
-			Card new_card(i, j);
+			deck.push_back(new Card(i, j));
 		}
 	}
 }
 
-void Deck::remove_from_deck()
+void Deck::randomise_cards()
 {
+	std::random_shuffle(deck.begin(), deck.end());
 }
 
-int Deck::get_from_deck() const
+Card Deck::giveCard()
 {
-
+	for (int i = 0; i <= deck.size() - 1; i++)
+	{
+		if (!deck[i]->getGiven())
+		{
+			deck[i]->cardGiven();
+			return (*deck[i]);
+		}
+	}
 }
+

@@ -1,11 +1,11 @@
 #include "Game.h"
 #include "graphics.h"
 #include "config.h"
-#include "Card.h"
 #include "Deck.h"
 
-//Game functions
+#include <iostream>
 
+//Game functions
 void Game::update()
 {
 }
@@ -24,6 +24,7 @@ void Game::draw()
 {
 	//Creates a brush 
 	graphics::Brush br;
+	br.outline_opacity = 0.0f;
 
 	//We create the background
 	br.texture = std::string(ASSET_PATH) + "blackjack_background.png";
@@ -41,9 +42,6 @@ void Game::draw()
 	graphics::drawRect(CARD_X, CARD_Y, CARD_WIDTH, CARD_HEIGHT, br);
 	// reverse back so everything we do next will be normal
 	graphics::setOrientation(0.f);
-	
-	Deck d;
-	d.fill_deck();
 	
 	
 }

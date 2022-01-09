@@ -5,18 +5,19 @@ class Card
 {
 public:
 	Card(int style, int num);
-	virtual ~Card();
+	Card(const Card&);
+	~Card();
 	int getNum()const;
 	int getStyle() const;
 	int getValue() const;
-	int setValue();
-	void draw();
 	bool getGiven() const;
-	void itsGiven();
+	void cardGiven();
+	void draw();
 private:
 	int num;
 	int style;
 	int value;
 	bool given;
+	int setValue();
 	graphics::Brush br;
 };
