@@ -1,9 +1,11 @@
 #include "Player.h"
 
-Player::Player()
+Player::Player(Deck p_deck)
 {
 	this->money = 10000;
-	
+	CardState = true;
+	this->player_deck = p_deck;
+	this->pd_deck.first_cards(p_deck.giveCard(), p_deck.giveCard());
 }
 
 Player::~Player()
@@ -28,4 +30,9 @@ void Player::setPosX(float x)
 void Player::setPosY(float y)
 {
 	this->position[1] = y;
+}
+
+int Player::getScore() const
+{
+	return score;
 }
