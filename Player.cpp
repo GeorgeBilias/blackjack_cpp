@@ -2,7 +2,6 @@
 
 Player::Player(Deck p_deck)
 {
-	this->money = 10000;
 	CardState = true;
 	this->player_deck = p_deck;
 	this->pd_deck.first_cards(p_deck.giveCard(), p_deck.giveCard());
